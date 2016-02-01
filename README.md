@@ -64,3 +64,78 @@ Notes: commands and code will be formatted for clarity.
 	- In it, just type `node_modules/` and save. 
 	- Run `git add .gitignore` and then `git commit -m "Add .gitignore"` to save it to your repo. 
 	- Now you can add the rest of the files that we've just created. 
+
+7. Create a `src` and an `app` folder
+8. Create `app.component.ts` inside `src/` and copy the code below into it
+
+		import {Component} from 'angular2/core';
+		
+		@Component({
+		    selector: 'my-app',
+		    template: '<h1>My First Angular 2 App</h1>'
+		})
+		export class AppComponent { }
+
+    Let's review this code:
+      - We are importing `Component` as a _class_ from Angular2's core library. At the bottom of the file, we are exporting `AppComponent` as a class as well.
+      - The `export` statement is what turns the file into a module. Angular apps are modular, and each file should correspond to only one module. 
+      - The `@` in front of Component means that it is a _decorator_. This will apply metadata to our class using the configuration object we are passing into it. 
+      - The configuration object has 2 properties: `selector` and `template`. 
+		    - The `selector` specifies a simple CSS selector for a host HTML element named `my-app`. 
+		    - The `template` property holds the component's companion template. A template is a form of HTML that tells Angular how to render a view. Our template is a single line of HTML announcing "My First Angular App". 
+    
+9. Bootstrap the application
+	- Create `main.ts` in `src` and copy in the below code
+	
+			import {bootstrap}    from 'angular2/platform/browser'
+			import {AppComponent} from './app.component'
+			
+			bootstrap(AppComponent);
+			
+	We are importing bootstrap, Angular2's method to starting your application. You can learn more about [Angular's bootstrap function](https://angular.io/docs/ts/latest/quickstart.html#!#main) from their docs. Don't get confused with Twitter's Bootstrap styling!We are also importing the AppComponent we just exported in our `app.component` file.
+	
+10. Add `index.html` to the project root and copy the below code
+
+			<!DOCTYPE html>
+			<html lang="en">
+			<head>
+			  <meta charset="UTF-8">
+			  <title>Personal Profile</title>
+			  <!-- 1. Load libraries -->
+			  <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+			  <script src="node_modules/systemjs/dist/system.src.js"></script>
+			  <script src="node_modules/rxjs/bundles/Rx.js"></script>
+			  <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+			  <!-- 2. Configure SystemJS -->
+			  <script>
+			    System.config({
+			      packages: {
+			        app: {
+			          format: 'register',
+			          defaultExtension: 'js'
+			        }
+			      }
+			    });
+			    System.import('app/main')
+			      .then(null, console.error.bind(console));
+			  </script>
+			</head>
+			
+			<!-- 3. Display the application -->
+			<body>
+			  <my-app>Loading...</my-app>
+			</body>
+			</html>
+
+	There are three noteworthy sections of HTML:
+    - We load the JavaScript libraries we need.
+    - We configure something called `System` and ask it to import the `main` file we just wrote. SystemJS is a module loader that pulls in the parts that as needed, starting with `main`.
+    - We add the `<my-app>` tag in the `<body>`. This is where our app lives!
+    
+11. Run `npm start`
+	That command runs two parallel node processes
+		- The TypeScript compiler in watch mode
+		- A static server called `lite-server` that loads `index.html` in a browser and refreshes the browser when application files change
+	
+	A browser tab should open and display 
+	<img src=http://imgur.com/9m1GQ7C/ width=250>
