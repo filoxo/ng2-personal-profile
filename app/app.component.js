@@ -24,7 +24,7 @@ System.register(['angular2/core'], function(exports_1) {
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "<div id=\"layout\" class=\"pure-g\">\n    <div class=\"sidebar pure-u-1 pure-u-md-1-4\">\n        <div class=\"header\">\n            <h1 class=\"brand-title\">{{ name }}</h1>\n            <h2 class=\"brand-tagline\">{{ email }}</h2>\n        </div>\n    </div>\n\n    <main class=\"content pure-u-1 pure-u-md-3-4\">\n        <div>\n            <!-- Posts wrapper -->\n            <div class=\"posts\">\n                <h1 class=\"content-subhead\">Experience</h1>\n\n                <!-- Single post -->\n                <section class=\"post\">\n                    <header class=\"post-header\">\n                        <h2 class=\"post-title\">Job Position</h2>\n                        <p class=\"post-meta\">Job metadata</p>\n                    </header>\n                    <div class=\"post-description\">\n                        <p>Job description</p>\n                    </div>\n                </section>\n            </div>\n        </div>\n    </main>\n</div>"
+                        templateUrl: 'template/main.html'
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
