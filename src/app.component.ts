@@ -1,8 +1,10 @@
 import {Component} from 'angular2/core';
+import {JobComponent} from './job.component';
 
 @Component({
     selector: 'my-app',
-    templateUrl: 'template/main.html'
+    templateUrl: 'template/main.html',
+    directives: [JobComponent]
 })
 export class AppComponent {
     public name = 'Your name';
