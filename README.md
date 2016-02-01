@@ -138,4 +138,4 @@ Notes: commands and code will be formatted for clarity.
 		- A static server called `lite-server` that loads `index.html` in a browser and refreshes the browser when application files change
 	
 	A browser tab should open and display 
-	<img src=http://imgur.com/9m1GQ7C/ width=250>
+	![](http://imgur.com/9m1GQ7C/)
