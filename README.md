@@ -92,40 +92,40 @@ Notes: commands and code will be formatted for clarity.
 			
 			bootstrap(AppComponent);
 			
-	We are importing bootstrap, Angular2's method to starting your application. You can learn more about [Angular's bootstrap function](https://angular.io/docs/ts/latest/quickstart.html#!#main) from their docs. Don't get confused with Twitter's Bootstrap styling!We are also importing the AppComponent we just exported in our `app.component` file.
+	We are importing bootstrap, Angular2's method to starting your application. You can learn more about [Angular's bootstrap function](https://angular.io/docs/ts/latest/quickstart.html#!#main) from their docs. Don't get confused with Twitter's Bootstrap styling! We are also importing the AppComponent we just exported in our `app.component` file.
 	
 10. Add `index.html` to the project root and copy the below code
 
-			<!DOCTYPE html>
-			<html lang="en">
-			<head>
-			  <meta charset="UTF-8">
-			  <title>Personal Profile</title>
-			  <!-- 1. Load libraries -->
-			  <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
-			  <script src="node_modules/systemjs/dist/system.src.js"></script>
-			  <script src="node_modules/rxjs/bundles/Rx.js"></script>
-			  <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
-			  <!-- 2. Configure SystemJS -->
-			  <script>
-			    System.config({
-			      packages: {
-			        app: {
-			          format: 'register',
-			          defaultExtension: 'js'
-			        }
-			      }
-			    });
-			    System.import('app/main')
-			      .then(null, console.error.bind(console));
-			  </script>
-			</head>
-			
-			<!-- 3. Display the application -->
-			<body>
-			  <my-app>Loading...</my-app>
-			</body>
-			</html>
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+		  <meta charset="UTF-8">
+		  <title>Personal Profile</title>
+		  <!-- 1. Load libraries -->
+		  <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+		  <script src="node_modules/systemjs/dist/system.src.js"></script>
+		  <script src="node_modules/rxjs/bundles/Rx.js"></script>
+		  <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+		  <!-- 2. Configure SystemJS -->
+		  <script>
+		    System.config({
+		      packages: {
+		        app: {
+		          format: 'register',
+		          defaultExtension: 'js'
+		        }
+		      }
+		    });
+		    System.import('app/main')
+		      .then(null, console.error.bind(console));
+		  </script>
+		</head>
+		
+		<!-- 3. Display the application -->
+		<body>
+		  <my-app>Loading...</my-app>
+		</body>
+		</html>
 
 	There are three noteworthy sections of HTML:
     - We load the JavaScript libraries we need.
@@ -139,3 +139,9 @@ Notes: commands and code will be formatted for clarity.
 	
 	A browser tab should open and display 
 	![](http://i.imgur.com/9m1GQ7C.png)
+	
+### Congrats! It works!
+
+The TypeScript compiler and `lite-server` are watching so they will be able to detect changes, recompile the TypeScript into JavaScript, refresh the browser, and display the code. Play around with the text in the `<h1>` tag to see this in action. 
+
+Once you're ready, move in to PART2.md. 
