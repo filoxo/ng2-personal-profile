@@ -1,12 +1,12 @@
-import { Component } from 'angular2/core';
+import { Component, Input } from 'angular2/core';
 
 @Component({
-    selector: 'job',
+    selector: 'job-component',
     template:
 `<section class="post">
   <header class="post-header">
-    <h2 class="post-title">{{ title }}</h2>
-    <p class="post-meta">{{ company }}, {{ startDate }}&ndash;{{ endDate }}</p>
+    <h2 class="post-title">{{ job.title }}</h2>
+    <p class="post-meta">{{ job.company }}, {{ job.startDate }}&ndash;{{ job.endDate }}</p>
   </header>
   <div class="post-description">
     <p>Job description</p>
@@ -14,8 +14,5 @@ import { Component } from 'angular2/core';
 </section>`
 })
 export class JobComponent {
-    public title: String = "Web Developer";
-    public company: String = "MyCompany, Inc.";
-    public startDate: Date = new Date();
-    public endDate: Date = new Date();
+    @Input() job;
 }

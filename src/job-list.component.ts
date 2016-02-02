@@ -1,18 +1,14 @@
 import { Component } from 'angular2/core';
+import { JobComponent } from './job.component';
 
 @Component({
     selector: 'job-list',
+    directives: [JobComponent],
     template:
 `<div class="posts">
-    <h1 class="content-subhead">Experience</h1>
+    <h2 class="content-subhead">Experience</h2>
     <section class="post" *ngFor="#job of jobs">
-      <header class="post-header">
-        <h2 class="post-title">{{ job.title }}</h2>
-        <p class="post-meta">{{ job.company }} | {{ job.startDate }}&ndash;{{ job.endDate }}</p>
-      </header>
-      <div class="post-description">
-        <p>Job description</p>
-      </div>
+        <job-component [job]="job"></job-component>
     </section>
 </div>`
 })
