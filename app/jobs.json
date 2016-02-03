@@ -1,0 +1,16 @@
+{
+  "jobs": [
+    {
+      "title": "Web Developer",
+      "company": "MyCompany, Inc.",
+      "startDate": "2016-01-01T00:00:00+00:00",
+      "endDate": null
+    },
+    {
+      "title": "Front End Developer",
+      "company": "Big Co.",
+      "startDate": "2015-03-01T00:00:00+00:00",
+      "endDate": "2016-01-01T00:00:00+00:00"
+    }
+  ]
+}
