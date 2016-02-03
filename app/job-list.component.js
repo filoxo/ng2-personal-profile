@@ -1,4 +1,4 @@
-System.register(['angular2/core', './job.component'], function(exports_1) {
+System.register(['angular2/core', './job.component', './jobs.service'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', './job.component'], function(exports_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, job_component_1;
+    var core_1, job_component_1, jobs_service_1;
     var JobListComponent;
     return {
         setters:[
@@ -17,32 +17,29 @@ System.register(['angular2/core', './job.component'], function(exports_1) {
             },
             function (job_component_1_1) {
                 job_component_1 = job_component_1_1;
+            },
+            function (jobs_service_1_1) {
+                jobs_service_1 = jobs_service_1_1;
             }],
         execute: function() {
             JobListComponent = (function () {
-                function JobListComponent() {
-                    this.jobs = [
-                        {
-                            title: "Web Developer",
-                            company: "MyCompany, Inc.",
-                            startDate: new Date(),
-                            endDate: new Date()
-                        },
-                        {
-                            title: "Front End Developer",
-                            company: "Big Co.",
-                            startDate: new Date(),
-                            endDate: new Date()
-                        }
-                    ];
+                function JobListComponent(_jobsService) {
+                    this._jobsService = _jobsService;
+                    this.jobs = [];
                 }
+                JobListComponent.prototype.ngOnInit = function () {
+                    var _this = this;
+                    this._jobsService.getJobs()
+                        .subscribe(function (res) { return _this.jobs = res.jobs; }); //Subscribing to observable
+                };
                 JobListComponent = __decorate([
                     core_1.Component({
                         selector: 'job-list',
                         directives: [job_component_1.JobComponent],
-                        template: "<div class=\"posts\">\n    <h2 class=\"content-subhead\">Experience</h2>\n    <section class=\"post\" *ngFor=\"#job of jobs\">\n        <job-component [job]=\"job\"></job-component>\n    </section>\n</div>"
+                        template: "<div class=\"posts\">\n    <h2 class=\"content-subhead\">Experience</h2>\n    <section class=\"post\" *ngFor=\"#job of jobs\">\n        <job-component [job]=\"job\"></job-component>\n    </section>\n</div>",
+                        providers: [jobs_service_1.JobsService]
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [jobs_service_1.JobsService])
                 ], JobListComponent);
                 return JobListComponent;
             })();
