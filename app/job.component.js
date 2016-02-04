@@ -19,6 +19,14 @@ System.register(['angular2/core'], function(exports_1) {
             JobComponent = (function () {
                 function JobComponent() {
                 }
+                JobComponent.prototype.ngOnInit = function () {
+                    if (this.job.startDate) {
+                        this.job.startDate = new Date(this.job.startDate);
+                    }
+                    if (this.job.endDate) {
+                        this.job.endDate = new Date(this.job.endDate);
+                    }
+                };
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', Object)
@@ -26,7 +34,7 @@ System.register(['angular2/core'], function(exports_1) {
                 JobComponent = __decorate([
                     core_1.Component({
                         selector: 'job-component',
-                        template: "<section class=\"post\">\n  <header class=\"post-header\">\n    <h2 class=\"post-title\">{{ job.title }}</h2>\n    <p class=\"post-meta\">{{ job.company }}, {{ job.startDate }}&ndash;{{ job.endDate }}</p>\n  </header>\n  <div class=\"post-description\">\n    <p>Job description</p>\n  </div>\n</section>"
+                        template: "<section class=\"post\">\n  <header class=\"post-header\">\n    <h2 class=\"post-title\">{{ job.title }}</h2>\n    <p class=\"post-meta\">{{ job.company }},\n        <span *ngIf=\"job.startDate\">{{ job.startDate | date:\"mediumDate\" }}</span>\n        &ndash;\n        <span *ngIf=\"job.endDate\">{{ job.endDate | date:\"mediumDate\" }}</span>\n        <span *ngIf=\"!job.endDate\">present</span>\n    </p>\n  </header>\n  <div class=\"post-description\">\n    <p>{{ job.description }}</p>\n  </div>\n</section>"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], JobComponent);
