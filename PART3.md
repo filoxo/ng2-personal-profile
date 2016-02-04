@@ -148,6 +148,6 @@ What, what is that `subscribe()` call? Observables will emit an object once comp
 
 And just like that, our data is now dynamically pulled in once the app initializes. 
 
-![](http://i.imgur.com/iCNrX0S.gifv)
+![](http://i.imgur.com/iCNrX0S.gif)
 
 This has been a great example of how to keep components small and modular, as well as separating our concerns into maintainable pieces. 
